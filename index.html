@@ -14,7 +14,7 @@
 <div id="parasha"></div>
 
 <script>
-  fetch('https://www.hebcal.com/shabbat?cfg=json&geonameid=294751&m=50&leyning=on')
+  fetch('https://www.hebcal.com/shabbat?cfg=json&geonameid=294751&m=42&leyning=on')
     .then(response => response.json())
     .then(data => {
       const hebrewDate = data.items.find(item => item.category === "hebdate");
