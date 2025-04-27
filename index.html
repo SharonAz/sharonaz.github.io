@@ -6,7 +6,10 @@
 </head>
 <body>
 <h1>השבוע העברי</h1>
-<div id="hebrew-date"></div>
+<div id="hebrew-date">
+<script src="https://www.hebcal.com/etc/hdate-he.js" crossorigin="anonymous">
+</script>
+</div>
 <h2>פרשת השבוע</h2>
 <div id="parasha"></div>
 
@@ -21,14 +24,6 @@
       document.getElementById('parasha').innerText = parashat.hebrew;
     })
     .catch(error => console.error('Error fetching data:', error));
-</script>
-<script>
-  fetch('https://www.hebcal.com/etc/hdate-he.js')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('hebrew-date').innerText = data;
-    })
-  .catch(error => console.error('Error fetching data:', error));
 </script>
 </body>
 </html>
