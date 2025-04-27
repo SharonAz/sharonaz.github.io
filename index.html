@@ -1,1 +1,26 @@
-asdasdasd
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>שבוע עברי ופרשת השבוע</title>
+</head>
+<body>
+<h1>השבוע העברי</h1>
+<div id="hebrew-date"></div>
+<h2>פרשת השבוע</h2>
+<div id="parasha"></div>
+
+<script>
+  fetch('https://www.hebcal.com/shabbat?cfg=json&geonameid=3448439&m=50')
+    .then(response => response.json())
+    .then(data => {
+      const hebrewDate = data.items.find(item => item.category === "hebdate");
+      const parashat = data.items.find(item => item.category === "parashat");
+      
+      document.getElementById('hebrew-date').innerText = hebrewDate.hebrew;
+      document.getElementById('parasha').innerText = parashat.title;
+    })
+    .catch(error => console.error('Error fetching data:', error));
+</script>
+</body>
+</html>
